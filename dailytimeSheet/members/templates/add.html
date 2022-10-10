@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Time sheet</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+
+    <div class="cotainer">
+<div style="padding: 5%" class="card">
+<h1>Add Entry</h1>
+
+<form action="addrecord/" method="post">
+    {% csrf_token %}
+    name:<br>
+    <input name="name" value="{{user.username}}">
+    <br><br>
+    date:<br>
+    <input type="date" name="dte">
+    <br><br>
+    VPN-Entry:<br>
+    <input name="vpne">
+    <br><br>
+    VPN-Exit:<br>
+    <input name="vpno">
+    <br><br>
+    Office-Entry:<br>
+    <input name="officee">
+    <br><br>
+    Office-Exit:<br>
+    <input name="officeo">
+    <br><br>
+    <input  class="btn btn-primary" type="submit" value="Submit">
+</form>
+
+
+</div>
+</div>
+</body>
+</html>

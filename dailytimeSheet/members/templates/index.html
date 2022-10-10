@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Time sheet</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+
+    <div class="container" style="padding: 1%">  
+        <span class="border">
+<h1>Welcome {{user.username}}</h1>
+<!--border="1"-->
+<table class="table table-striped" >
+    <thead>
+        <tr>
+            <th scope="col"> sr No.</th>
+            <th scope="col"> mem name</th>
+            <th scope="col"> date</th>
+            <th scope="col"> VPN-Entry</th>
+            <th scope="col"> VPN-Exit</th>
+            <th scope="col"> Office-Entry</th>
+            <th scope="col"> Office-Exit</th>
+            <th scope="col"> VPN-total</th>
+            <th scope="col"> Office-total</th>
+            <th scope="col"> Total</th>
+        </tr>
+    </thead>
+
+{% for x in mymembers %}
+<tbody>
+<tr>
+<th><a href="update/{{ x.id }}">{{ x.id }}</a></th>
+<td>{{ x.name }}</td>
+<td>{{ x.dte }}</td>
+<td>{{ x.ve }}</td>
+<td>{{ x.vo }}</td>
+<td>{{ x.oe }}</td>
+<td>{{ x.oo }}</td>
+<td>{{ x.vt }}</td>
+<td>{{ x.ot }}</td>
+<td>{{ x.tt }}</td>
+<td><a href="delete/{{ x.id }}">delete</a></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+
+<p>
+    <a href="add/">Add Entry</a>
+</p>
+
+<a class="btn btn-danger" href="logout/">Logout</a>
+
+
+</span>
+</div>
+</body>
+</html>
