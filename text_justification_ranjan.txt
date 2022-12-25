@@ -1,0 +1,38 @@
+words=["this","is","an","example","of" ,"text","justification."]
+maxwidth=16
+res=[]
+i=0
+weed=0
+c_line=[]
+space=0
+
+while i<len(words):
+    c_word=words[i]
+    if weed+len(c_word) <= maxwidth:
+        c_line.append(c_word)
+        weed+=len(c_word)+1
+        i+=1
+    else:
+        space=maxwidth-weed +len(c_line)
+        sp=0
+        j=0
+        while sp<=space:
+            if j>=len(c_line)-1:
+                j=0
+            try:
+                c_line[j]+=" "
+                sp+=1
+                j+=1
+            except:
+                c_line[j-1]+=" "
+            res.append("".join(c_line))
+            c_line=[]
+            weed=0
+
+for lword in range(len(c_line)-1):
+    c_line[lword]+=" "
+c_line[-1]+=" "* (maxwidth - weed + 1)
+res.append("".join(c_line))
+
+print(res)
+
